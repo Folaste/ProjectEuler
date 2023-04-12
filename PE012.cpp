@@ -14,18 +14,9 @@ int main(void)
 		count_div = 0;
 		triangular += ++add;
 
-//		std::cout << triangular;
-
 		for (unsigned long long i = 1; i <= triangular; i++)
-		{
 			if (triangular % i == 0)
-			{
 				count_div++;
-//				if (triangular / i != i)
-//					count_div++;
-			}
-		}
-//		std::cout << " , " << count_div << std::endl;
 	}
 
 	std::cout << "This number is " << triangular << std::endl;
