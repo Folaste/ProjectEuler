@@ -95,7 +95,7 @@ int	main(void)
 	for (int i = 1; i <= 1000; i++)
 	{
 		number = decomposeNumber(dict, i);
-		std::cout << number << std::endl;
+//		std::cout << number << std::endl;
 		result += number.size();
 		number.erase();
 	}
