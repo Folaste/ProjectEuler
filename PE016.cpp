@@ -5,9 +5,9 @@
 **	What is the sum of the digits of the number 2^1000?
 */
 
-#include <string>
-#include <iostream>
 #include <cmath>
+#include <iostream>
+#include <string>
 
 int main(void)
 {
