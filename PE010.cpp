@@ -36,7 +36,7 @@ int	main(void)
 	unsigned long	sum = 0;
 	
 	for (int nb = 1; nb < 2000000 ; nb++)
-		if (ft_is_prime(nb) == true)
+		if (ft_is_prime(nb))
 			sum += nb;
 
 	std::cout << "The sum is " << sum << std::endl;

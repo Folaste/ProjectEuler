@@ -3,3 +3,4 @@ a.out
 bigInt.cpp
 bigInt.h
 test*.cpp
+.idea

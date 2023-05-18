@@ -39,7 +39,7 @@ int	main(void)
 	while (count != 10001)
 	{
 		nb++;
-		if (ft_is_prime(nb) == true)
+		if (ft_is_prime(nb))
 			count++;
 	}
 

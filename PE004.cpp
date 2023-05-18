@@ -54,7 +54,7 @@ int	main(void)
 		for (int j = 100 ; j < i + 1 ; j++)
 		{
 			result = i * j;
-			if (ft_is_palindrome(result) == true && result > biggest)
+			if (ft_is_palindrome(result) && result > biggest)
 			{
 				std::cout << i << " " << j << std::endl;
 				biggest = result;
