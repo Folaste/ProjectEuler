@@ -32,7 +32,7 @@
 int main(void)
 {
 	std::string	grid;
-	long	product = 1,
+	long	product,
 			max_product = 0;
 
 
