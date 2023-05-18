@@ -1,7 +1,7 @@
 /*
 **	Problem 040: Champernowne's constant
 **
-** An irrational decimal fraction is created by concatenating the positive integers:
+**	An irrational decimal fraction is created by concatenating the positive integers:
 **
 **		0.123456789101112131415161718192021...
 **
