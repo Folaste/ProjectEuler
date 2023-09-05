@@ -13,17 +13,17 @@
 
 using namespace std;
 
-int	isPalindromic(string s)
+bool	isPalindromic(string s)
 {
 	int mid = s.size() / 2;
 
 	for (int i = 0; i < mid; i++)
 	{
 		if (s[i] != s[s.size() - 1 - i])
-			return (1);
+			return (false);
 	}
 	
-	return (0);
+	return (true);
 }
 
 string	tenToBin(int nb)
@@ -37,7 +37,7 @@ string	tenToBin(int nb)
 		nb /= 2;
 	}
 
-	return ret;
+	return (ret);
 }
 
 int main(void) 
@@ -50,10 +50,10 @@ int main(void)
 		// Even numbers are skipped because they will never be even in base 2 (they end in 0).
 		if (i % 2 == 0)
 			continue;
-		if (isPalindromic(to_string(i)) == 0)
+		if (isPalindromic(to_string(i)) == true)
 		{
 			s = tenToBin(i);
-			if (isPalindromic(s) == 0)
+			if (isPalindromic(s) == true)
 				sum += i;
 		}
 	}
