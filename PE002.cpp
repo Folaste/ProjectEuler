@@ -6,14 +6,18 @@
 **	1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 **
 **	By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
+**
+**	Solved in 1200 ns.
 */
 
+#include <chrono>
 #include <iostream>
 
 int main(void)
 {
 	unsigned int sum = 0, fibo_1 = 1, fibo_2 = 2, tmp;
 
+	auto start = std::chrono::system_clock::now();
 	sum += fibo_2;
 	while (fibo_2 < 4000000)
 	{
@@ -23,6 +27,9 @@ int main(void)
 		fibo_1 = fibo_2;
 		fibo_2 = tmp;
 	}
-	std::cout << "Sum is " << sum << std::endl;
+	auto end = std::chrono::system_clock::now();
+
+	auto t = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+	std::cout << "Sum is " << sum << ", found in " << t.count() << " nanosecond(s)."<< std::endl;
 	return (0);
 }

@@ -25,8 +25,11 @@
 **	71636269561882670428252483600823257530420752963450
 **
 **	Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
+**
+**	Solved in 200 us.
 */
 
+#include <chrono>
 #include <iostream>
 
 int main(void)
@@ -57,6 +60,7 @@ int main(void)
 05886116467109405077541002256983155200055935729725\
 71636269561882670428252483600823257530420752963450";
 
+	auto start = std::chrono::system_clock::now();
 	for (int i = 0 ; i < 1000 - 13; i++)
 	{
 		product = 1;
@@ -72,8 +76,10 @@ int main(void)
 		if (product > max_product)
 			max_product = product;
 	}
+	auto end = std::chrono::system_clock::now();
 
-	std::cout << "The product is " << max_product << std::endl;
+	auto t = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	std::cout << "The product is " << max_product << ", found in " << t.count() << " microsecond(s)." << std::endl;
 
 	return (0);
 }

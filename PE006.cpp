@@ -8,8 +8,11 @@
 **	Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 - 385 = 2640.
 **
 **	Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+**
+**	Solved in 1530 ns.
 */
 
+#include <chrono>
 #include <iostream>
 
 int	main(void)
@@ -17,6 +20,7 @@ int	main(void)
 	int	sum = 0,
 		square_sum = 0;
 
+	auto start = std::chrono::system_clock::now(); 
 	for (int i = 1; i <= 100; i++)
 	{
 		sum += i;
@@ -24,8 +28,10 @@ int	main(void)
 	}
 
 	sum *= sum;
+	auto end = std::chrono::system_clock::now(); 
 
-	std::cout << "The difference is " <<  sum - square_sum << std::endl;
+	auto t = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+	std::cout << "Difference is " <<  sum - square_sum << ", found in " << t.count() << " nanosecond(s)." << std::endl;
 
 	return (0);
 }

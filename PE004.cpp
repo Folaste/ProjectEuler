@@ -4,41 +4,23 @@
 **	A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 **
 **	Find the largest palindrome made from the product of two 3-digit numbers.
+**
+**	Solved in 4 ms.
 */
 
+#include <chrono>
 #include <iostream>
 #include <sstream>
-
-int	ft_intlen(int nb)
-{
-	int i = 1;
-
-	while (nb >= 10)
-	{
-		i++;
-		nb /= 10;
-	}
-
-	return (i);
-}
-
-const char*	ft_itoa(int nb)
-{
-	std::stringstream	ss;
-	ss << nb;
-	return (ss.str().c_str());
-}
+#include <string>
 
 bool	ft_is_palindrome(int nb)
 {
-	const char*	str;
-	int			len;
+	std::string	str;
 	
-	len = ft_intlen(nb);
-	str = ft_itoa(nb);	
-	for (int i = 0; i < len / 2 ; i++)
+	str = std::to_string(nb);	
+	for (size_t i = 0; i < str.size() / 2 ; i++)
 	{
-		if (str[i] != str[len - 1 - i])
+		if (str[i] != str[str.size() - 1 - i])
 			return (false);
 	}
 	return (true);
@@ -49,20 +31,23 @@ int	main(void)
 	int	result,
 		biggest;
 
+	auto start = std::chrono::system_clock::now();
 	for (int i = 100 ; i < 1000 ; i++)
 	{
 		for (int j = 100 ; j < i + 1 ; j++)
 		{
 			result = i * j;
-			if (ft_is_palindrome(result) && result > biggest)
+			if (result > biggest && ft_is_palindrome(result))
 			{
-				std::cout << i << " " << j << std::endl;
+//				std::cout << i << " " << j << std::endl;
 				biggest = result;
 			}
 		}
 	}
+	auto end = std::chrono::system_clock::now();
 
-	std::cout << "The biggest palindrome is " << biggest << std::endl;
+	auto t = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+	std::cout << "Largest palindrome is " << biggest << ", found in " << t.count() << " millisecond(s)." << std::endl;
 
 	return (0);
 }
