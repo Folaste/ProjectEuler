@@ -7,8 +7,11 @@
 **
 **	NOTE: Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters.
 **	The use of "and" when writing out numbers is in compliance with British usage.
+**
+**	Solved in 3600 us. 
 */
 
+#include <chrono>
 #include <iostream>
 #include <map>
 
@@ -90,6 +93,7 @@ int	main(void)
 	long						result = 0;
 	std::string					number;
 
+	auto start = std::chrono::system_clock::now();
 	dict = createDictionary();
 	for (int i = 1; i <= 1000; i++)
 	{
@@ -98,8 +102,11 @@ int	main(void)
 		result += number.size();
 		number.erase();
 	}
+	auto end = std::chrono::system_clock::now();
 
-	std::cout << "Number of letters to write all numbers from 1 to 1000 is " << result << std::endl;
+	auto t = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	std::cout << "Number of letters to write all numbers from 1 to 1000 is " << result 
+		<< ", found in " << t.count() << " microsecond(s)." << std::endl;
 
 	return (0);
 }

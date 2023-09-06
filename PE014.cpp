@@ -15,8 +15,11 @@
 **	Which starting number, under one million, produces the longest chain?
 **
 **	NOTE: Once the chain starts the terms are allowed to go above one million.
+**
+**	Solved in 333 ms. 
 */
 
+#include <chrono>
 #include <iostream>
 
 int	main(void)
@@ -25,6 +28,7 @@ int	main(void)
 					max_number = 1,
 					n, count;
 
+	auto start = std::chrono::system_clock::now();
 	for (int i = 1; i <= 1000000; i++)
 	{
 		n = i;
@@ -43,7 +47,9 @@ int	main(void)
 			max_number = i;
 		}
 	}
+	auto end = std::chrono::system_clock::now();
 
-	std::cout << "The number is " << max_number << std::endl;
+	auto t = std::chrono::duration_cast<std::chrono::microseconds>(end - start);  
+	std::cout << "The number is " << max_number << ", found in " << t.count() << " microsecond(s)." << std::endl;
 	return (0);
 }

@@ -6,10 +6,13 @@
 **	Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2.
 **
 **	(Please note that the palindromic number, in either base, may not include leading zeros.)
+**
+**	Solved in 26 ms.
 */
 
-#include <string>
+#include <chrono>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -45,6 +48,7 @@ int main(void)
 	unsigned long sum = 0;
 	string s;
 
+	auto start = chrono::system_clock::now();
 	for (int i = 1; i < 1000000; i++)
 	{
 		// Even numbers are skipped because they will never be even in base 2 (they end in 0).
@@ -57,7 +61,11 @@ int main(void)
 				sum += i;
 		}
 	}
+	auto end = chrono::system_clock::now();
 
-	cout << "The sum is " << sum << "." << endl;
+	auto t = chrono::duration_cast<chrono::microseconds>(end - start);
+	cout << "The sum is " << sum 
+		<< ", found in " << t.count() << " microsecond(s)." << endl;
+	
 	return (0);
 }

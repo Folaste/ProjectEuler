@@ -9,8 +9,11 @@
 **
 **	If dn represents the nth digit of the fractional part, find the value of the following expression.
 **		d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
+**
+**	Solved in 7650 us.
 */
 
+#include <chrono>
 #include <iostream>
 
 int	main(void)
@@ -19,6 +22,7 @@ int	main(void)
 		product = 1;
 	std::string frac_part;
 
+	auto start = std::chrono::system_clock::now();
 	while (frac_part.size() <= 1000000)
 	{
 		frac_part += std::to_string(count);
@@ -27,7 +31,10 @@ int	main(void)
 
 	for (int i = 1; i <= 1000000; i *= 10)
 		product *= frac_part[i - 1] - '0';
+	auto end = std::chrono::system_clock::now();
 
-	std::cout << "Result of the expression is " << product << std::endl;
+	auto t = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	std::cout << "Result of the expression is " << product
+		<< ", found in " << t.count() << " microsecond(s)." << std::endl;
 	return (0);
 }

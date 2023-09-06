@@ -13,9 +13,12 @@
 **	  - A leap year occurs on any year evenly divisible by 4, but not on a century unless it is divisible by 400.
 **
 **	How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
+**
+**	Solved in 450 us.
 */
 
 #include <algorithm>
+#include <chrono>
 #include <iostream>
 #include <map>
 #include <vector>
@@ -39,6 +42,7 @@ int	main(void)
 	std::vector<int>	day_31_months = {1, 3, 5, 7, 8, 10, 12},
 						day_30_months = {4, 6, 9, 11};
 
+	auto start = std::chrono::system_clock::now();
 	current_day += 365 % 7; // Day of 1st Jan 1901;
 	for (int year = 1901 ; year <= 2000; year++)
 	{
@@ -59,6 +63,10 @@ int	main(void)
 				count++;
 		}
 	}
-	std::cout << "Number of Sundays falling on the day of the month in the 20th century is " << count << std::endl;
+	auto end = std::chrono::system_clock::now();
+
+	auto t = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	std::cout << "Number of Sundays falling on the day of the month in the 20th century is " << count 
+		<< ", found in " << t.count() << " microsecond(s)." << std::endl;
 	return (0);
 }

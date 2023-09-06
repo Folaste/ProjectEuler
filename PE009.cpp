@@ -1,4 +1,3 @@
-// Find the product of the only Pythagorean triplet (a2 + b2 = c2) that supports a + b + c = 1000
 /*
 **	Problem 009: Special Pythagorean triplet
 **
@@ -9,14 +8,18 @@
 **
 **	There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 **	Find the product abc.
+**
+**	Solved in 312 ms.
 */
 
+#include <chrono>
 #include <iostream>
 
 int	main(void)
 {
 	long result;
 
+	auto start = std::chrono::system_clock::now();
 	for (int a = 1; a < 1000; a++)
 	{
 		for (int b = 1; b < 1000; b++)
@@ -28,8 +31,12 @@ int	main(void)
 				else if (a * a + b * b == c * c)
 				{
 					result = a * b * c;
+					auto end = std::chrono::system_clock::now();
+
+					auto t = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 					std::cout << a << " " << b << " " << c << std::endl;
-					std::cout << "The product is " << result << std::endl;
+					std::cout << "The product is " << result
+						<< ", found in " << t.count() << " millisecond(s)." << std::endl;
 					return (0);
 				}
 			}

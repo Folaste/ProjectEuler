@@ -18,8 +18,11 @@
 **	We can see that 28 is the first triangle number to have over five divisors.
 **
 **	What is the value of the first triangle number to have over five hundred divisors?
+**
+**	Solved in 30:24 min.
 */
 
+#include <chrono>
 #include <cmath>
 #include <iostream>
 
@@ -29,6 +32,7 @@ int main(void)
 	unsigned long long	add = 0;
 	int					count_div = 0;
 	
+	auto start = std::chrono::system_clock::now();
 	while (count_div < 500)
 	{
 		count_div = 0;
@@ -38,8 +42,11 @@ int main(void)
 			if (triangular % i == 0)
 				count_div++;
 	}
+	auto end = std::chrono::system_clock::now();
 
-	std::cout << "This number is " << triangular << std::endl;
+	auto t = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	std::cout << "This number is " << triangular
+		<< ", found in " << t.count() << " microsecond(s)." << std::endl;
 
 	return (0);
 }

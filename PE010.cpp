@@ -4,8 +4,11 @@
 **	The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 **
 **	Find the sum of all the primes below two million.
+**
+**	Solved in 3.340 s.
 */
 
+#include <chrono>
 #include <iostream>
 
 int	ft_sqrt(int nb)
@@ -35,11 +38,15 @@ int	main(void)
 {
 	unsigned long	sum = 0;
 	
+	auto start = std::chrono::system_clock::now();
 	for (int nb = 1; nb < 2000000 ; nb++)
 		if (ft_is_prime(nb))
 			sum += nb;
+	auto end = std::chrono::system_clock::now();
 
-	std::cout << "The sum is " << sum << std::endl;
+	auto t = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	std::cout << "The sum is " << sum
+		<< ", found in " << t.count() << " microsecond(s)." << std::endl;
 	
 	return (0);
 }

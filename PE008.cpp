@@ -79,7 +79,8 @@ int main(void)
 	auto end = std::chrono::system_clock::now();
 
 	auto t = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-	std::cout << "The product is " << max_product << ", found in " << t.count() << " microsecond(s)." << std::endl;
+	std::cout << "The product is " << max_product
+		<< ", found in " << t.count() << " microsecond(s)." << std::endl;
 
 	return (0);
 }

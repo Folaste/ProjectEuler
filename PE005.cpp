@@ -29,8 +29,10 @@ int	main(void)
 			{
 				auto end = std::chrono::system_clock::now();
 
-				auto t = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-				std::cout << "Smallest multiple is " << i << ", found in " << t.count() << " millisecond(s)." << std::endl;
+				auto t = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+				std::cout << "Smallest multiple is " << i
+					<< ", found in " << t.count() << " microsecond(s)." << std::endl;
+
 				return (0);
 			}
 		}

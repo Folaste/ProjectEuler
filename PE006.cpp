@@ -30,8 +30,9 @@ int	main(void)
 	sum *= sum;
 	auto end = std::chrono::system_clock::now(); 
 
-	auto t = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-	std::cout << "Difference is " <<  sum - square_sum << ", found in " << t.count() << " nanosecond(s)." << std::endl;
+	auto t = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	std::cout << "Difference is " <<  sum - square_sum
+		<< ", found in " << t.count() << " microsecond(s)." << std::endl;
 
 	return (0);
 }

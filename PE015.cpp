@@ -5,8 +5,11 @@
 **	there are exactly 6 routes to the bottom right corner.
 **
 **	How many such routes are there through a 20×20 grid?
+**
+**	Solved in 310 ns. 
 */
 
+#include <chrono>
 #include <iostream>
 
 //	To find all the paths, we know that we have 20 moves to the right and 20 moves down to reach the end.
@@ -37,9 +40,13 @@ int	main(void)
 
 	long long ret;
 
+	auto start = std::chrono::system_clock::now();
 	ret = binomial_coefficient(n, k);
+	auto end = std::chrono::system_clock::now();
 
-	std::cout << "The number of paths is " << ret << std::endl;
+	auto t = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+	std::cout << "The number of paths is " << ret
+		<< ", found in " << t.count() << " microsecond(s)." << std::endl;
 
 	return (0);
 }
