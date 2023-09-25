@@ -25,4 +25,5 @@ for digit in str(x):
     total += int(digit)
 end = time.time_ns()
 
+print(__doc__)
 print(f"Sum of all digits of 100! is {total}, found in {round((end - start) / 1000)} microseconds")
