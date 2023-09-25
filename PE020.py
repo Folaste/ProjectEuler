@@ -8,7 +8,7 @@ Problem 020: Factorial Digit Sum
 
   Find the sum of the digits in the number 100!.
 
-      Solved in
+      Solved in 70 microseconds
 """
 
 import time
