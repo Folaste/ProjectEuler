@@ -16,13 +16,13 @@ import time
 start = time.time_ns()
 n = 100
 x = 1
-sum = 0
+total = 0
 
 for i in range(1, n + 1):
     x = x * i
 
 for digit in str(x):
-    sum += int(digit)
+    total += int(digit)
 end = time.time_ns()
 
-print(f"Sum of all digits of 100! is {sum}, found in {round((end - start) / 1000)} microseconds")
+print(f"Sum of all digits of 100! is {total}, found in {round((end - start) / 1000)} microseconds")
