@@ -19,7 +19,7 @@ int	main(void)
 									ret = 0;
 
 	auto start = std::chrono::system_clock::now();
-	file.open("13_numbers.txt");
+	file.open("013_numbers.txt");
 	if (!file.is_open())
 		exit(1);
 
