@@ -29,6 +29,6 @@ for i in range(10, 354294):  # Value of 354294 was calculated by 9^5 + 9^5 + 9^5
 end = time.time_ns()
 
 print(f"The sum of all numbers that can be written as the sum of fifth powers of their digits is {result},"
-      f"\nfound in {round((end - start) / 1_000_000)} milliseconds.")
+      f"found in {round((end - start) / 1_000_000)} milliseconds.")
 
 
