@@ -15,7 +15,7 @@ start = time.time_ns()
 
 total = 0
 square = 0
-for i in range (1, 1001):
+for i in range(1, 1001):
     square = i ** i
     total += square
 
