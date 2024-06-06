@@ -1,7 +1,7 @@
 """
 Problem 022: Names Scores
 
-    Using 022_names.txt, a 46K file containing ive five-thousand first names,
+    Using names.txt, a 46K file containing ive five-thousand first names,
     begin by sorting it into alphabetical order.
     Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list
     to obtain a name score.
@@ -30,7 +30,7 @@ alpha_score = dict()
 for i in range(len(alpha)):
     alpha_score[alpha[i]] = i + 1
 
-with open("022_names.txt", 'r') as f:
+with open("files/names.txt", 'r') as f:
     name_list = f.read()
     f.close()
 
